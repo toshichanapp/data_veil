@@ -1,0 +1,6 @@
+default:
+  users:
+    email: email
+    name: "string",
+    phone: "tel",
+    encrypted_password: password
