@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "data_veil"
+
+result = DataVeil::CLI.start(ARGV)
+exit(result.is_a?(Integer) ? result : DataVeil::CLI::SUCCESS_EXIT_CODE)

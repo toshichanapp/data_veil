@@ -1,0 +1,25 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV['MASK_DATABASE_POOL'] || 5 %>
+  username: <%= ENV['MASK_DATABASE_USER'] || 'root' %>
+  password: <%= ENV['MASK_DATABASE_PASSWORD'] || 'root' %>
+  host: <%= ENV['MASK_DATABASE_HOST'] || 'localhost' %>
+  migrations_paths: db/migrate
+
+customer_analytics: &customer_analytics
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV['MASK_DATABASE_POOL'] || 3 %>
+  username: <%= ENV['MASK_DATABASE_USER'] || 'root' %>
+  password: <%= ENV['MASK_DATABASE_PASSWORD'] || 'root' %>
+  host: <%= ENV['MASK_DATABASE_HOST'] || 'localhost' %>
+  migrations_paths: db_customer_analytics/migrate
+
+test:
+  default:
+    <<: *default
+    database: data_veil_default_test
+  customer_analytics:
+    <<: *customer_analytics
+    database: data_veil_customer_analytics_test
